@@ -1,10 +1,11 @@
 package com.example.sansvoirbot.chess.pieces;
 
-import com.example.sansvoirbot.chess.Spot;
+import com.example.sansvoirbot.chess.board.Board;
+import com.example.sansvoirbot.chess.board.Spot;
 
 public abstract class  Piece {
 
-    protected String name;
+    protected PieceTypes type;
     private boolean killed = false;
     private final boolean white;
     private Spot currentSpot;
@@ -13,6 +14,8 @@ public abstract class  Piece {
         this.white = white;
         this.currentSpot = currentSpot;
     }
+
+    public abstract boolean canMove(Board board, int x, int y);
 
     public boolean isKilled() {
         return killed;
@@ -24,6 +27,10 @@ public abstract class  Piece {
 
     public Spot getCurrentSpot() {
         return currentSpot;
+    }
+
+    public PieceTypes getType() {
+        return type;
     }
 
     public void setKilled(boolean killed) {

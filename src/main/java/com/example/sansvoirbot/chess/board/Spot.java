@@ -1,4 +1,4 @@
-package com.example.sansvoirbot.chess;
+package com.example.sansvoirbot.chess.board;
 
 import com.example.sansvoirbot.chess.pieces.Piece;
 
@@ -6,13 +6,17 @@ public class Spot {
 
     private final int x;
     private final int y;
-    private final String name;
+    public final String coordinatesName;
     private Piece piece;
 
-    public Spot(int x, int y, String name, Piece piece) {
+    public Spot(int x, int y, String coordinatesName, Piece piece) {
+        //if x and y are out of range
+        if (x < 0 || x > 7 || y < 0 || y > 7)
+            throw new ArrayIndexOutOfBoundsException("Invalid spot coordinates.");
+
         this.x = x;
         this.y = y;
-        this.name = name;
+        this.coordinatesName = coordinatesName;
         this.piece = piece;
     }
 
