@@ -5,13 +5,15 @@ import com.example.sansvoirbot.chess.board.Spot;
 
 public class Pawn extends Piece {
 
-    public Pawn(boolean white, Spot currentSpot) {
-        super(white, currentSpot);
-        this.type = PieceTypes.PAWN;
+    public Pawn(boolean white) {
+        super(white, PieceTypes.PAWN);
     }
 
     @Override
-    public boolean canMove(Board board, int x, int y) {
+    public boolean canMove(Board board, Spot spot) {
+        if (!this.generalMoveValidation(board,spot))
+            return false;
+
         return false;
     }
 

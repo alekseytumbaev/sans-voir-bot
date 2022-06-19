@@ -1,5 +1,6 @@
 package com.example.sansvoirbot.chess;
 
+import com.example.sansvoirbot.chess.board.Board;
 import com.example.sansvoirbot.chess.players.Player;
 
 import java.util.List;
